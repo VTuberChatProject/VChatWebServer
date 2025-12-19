@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="VChatWebServer.Tests/VChatWebServer.Tests.csproj" />
+  <Project Path="VChatWebServer/VChatWebServer.csproj" />
+</Solution>
