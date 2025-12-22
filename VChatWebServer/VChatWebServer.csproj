@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Title>VChat WebServer</Title>
-    <Version>2025.12.2.2</Version>
+    <Version>2025.12.2.3</Version>
     <Authors>AuraElicase</Authors>
     <PackageIcon></PackageIcon>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>

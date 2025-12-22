@@ -32,18 +32,16 @@ namespace VChatWebServer.Services
         {
             _sockets.TryRemove(id, out _);
         }
-        /// <summary>
-        /// 向所有处于打开状态的连接广播文本消息。
-        /// </summary>
-        /// <param name="message">要广播的文本消息。</param>
-        /// <returns>表示广播过程的异步任务。</returns>
-        public async Task BroadcastAsync(string message)
+        public async Task BroadcastAsync(string message, Guid? excludeId = null)
         {
             var buffer = System.Text.Encoding.UTF8.GetBytes(message);
             var segment = new ArraySegment<byte>(buffer);
 
-            foreach (var socket in _sockets.Values)
+            foreach (var kv in _sockets)
             {
+                if (excludeId.HasValue && kv.Key == excludeId.Value)
+                    continue;
+                var socket = kv.Value;
                 if (socket.State == WebSocketState.Open)
                 {
                     await socket.SendAsync(segment, WebSocketMessageType.Text, true, CancellationToken.None);

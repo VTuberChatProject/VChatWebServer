@@ -43,7 +43,6 @@ namespace VChatWebServer.Services
                     MessageBase? message = JsonSerializer.Deserialize<MessageBase>(receivedText);
                     if (message != null && message.Target == "@vchat_danmaku" && message.Action == "ping")
                     {
-                        // 发送pong响应
                         var pongMessage = new PongMessage
                         {
                             Target = "@vchat_danmaku",
@@ -59,6 +58,10 @@ namespace VChatWebServer.Services
                         var pongJson = JsonSerializer.Serialize(pongMessage);
                         var pongBytes = Encoding.UTF8.GetBytes(pongJson);
                         await socket.SendAsync(new ArraySegment<byte>(pongBytes), WebSocketMessageType.Text, true, CancellationToken.None);
+                    }
+                    else
+                    {
+                        await _manager.BroadcastAsync(receivedText, id);
                     }
                 }
             }
