@@ -1,10 +1,8 @@
 using VChatWebServer.Interfaces;
-using VChatWebServer;
 using System.Net.WebSockets;
 using System.Text;
-using System.Threading.Tasks;
-using VChatDanmakuAPIBuilder.Models.Messages;
 using System.Text.Json;
+using VChatWebServer.Models.Messages;
 
 namespace VChatWebServer.Services
 {
@@ -50,7 +48,7 @@ namespace VChatWebServer.Services
                         {
                             Target = "@vchat_danmaku",
                             Action = "pong",
-                            From = new VChatDanmakuAPIBuilder.Models.Common.FromInfo
+                            From = new Models.Common.FromInfo
                             {
                                 Name = Guid.NewGuid().ToString(),
                                 Type = "server",
