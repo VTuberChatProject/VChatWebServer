@@ -7,9 +7,14 @@
     <Title>VChat WebServer</Title>
     <Version>2025.12.2.3</Version>
     <Authors>AuraElicase</Authors>
-    <PackageIcon></PackageIcon>
+    <PackageIcon>vclogo.png</PackageIcon>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Description>用于VChat的Web服务器</Description>
+    <Description>用于VChat项目的通用Web服务器</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Company>VTuberChatProject</Company>
+    <RepositoryUrl>https://github.com/VTuberChatProject/VChatWebServer</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,6 +23,21 @@
 
   <ItemGroup>
     <Folder Include="assets\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\vclogo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
